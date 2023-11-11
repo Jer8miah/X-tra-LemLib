@@ -13,16 +13,20 @@ pros::Motor topBackRight(6, pros::E_MOTOR_GEARSET_06, true);
 pros::MotorGroup leftSide({backLeft,topBackLeft,frontLeft});
 pros::MotorGroup rightSide({backRight,topBackRight,frontRight});
 
+// Inertial
 pros::Imu imu(16);
 
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
+//
+pros::Motor cata(16, pros::E_MOTOR_GEARSET_36, false);
+
 lemlib::Drivetrain_t drivetrain {
     &leftSide,  // left drivetrain motors
     &rightSide, // left drivetrain motors
-    10, //Update track width !!!
-    4.125, // wheel diameter
-    300,
+    10,         // Update track width !!!
+    4.125,      // wheel diameter
+    300,        // wheel rpm 
     2
 };
 

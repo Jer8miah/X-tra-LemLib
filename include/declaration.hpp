@@ -22,3 +22,5 @@ extern lemlib::Chassis drive;
 
 // Inertial
 extern pros::Imu imu;
+
+extern pros::Motor cata;

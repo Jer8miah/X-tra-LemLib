@@ -1,4 +1,5 @@
 #include "main.h"
+#include "pros/misc.h"
 
 
 
@@ -8,7 +9,7 @@
  * When this callback is fired, it will toggle line 2 of the LCD text between
  * "I was pressed!" and nothing.
  */
-void on_center_button() {
+/*void on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
@@ -16,7 +17,7 @@ void on_center_button() {
 	} else {
 		pros::lcd::clear_line(2);
 	}
-}
+}*/
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -29,14 +30,14 @@ void initialize() {
 	drive.calibrate();
 
     // print odom values to the brain
-    pros::Task screenTask([=]() {
+    /*pros::Task screenTask([=]() {
         while (true) {
             pros::lcd::print(0, "X: %f", drive.getPose().x);
             pros::lcd::print(1, "Y: %f", drive.getPose().y);
             pros::lcd::print(2, "Theta: %f", drive.getPose().theta);
             pros::delay(50);
         }
-	});
+	});*/
 	
 }
 
@@ -88,10 +89,16 @@ void opcontrol() {
 
 
 	while (true) {
-		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
-		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
-		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
+
 		drive.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
+			cata.move_velocity(100);
+		}
+		else {
+			cata.brake();
+		}
+
 
 		pros::delay(20);
 	}
