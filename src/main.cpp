@@ -1,5 +1,5 @@
 #include "main.h"
-#include "pros/misc.h"
+#include "selection.cpp"
 
 
 
@@ -19,6 +19,18 @@
 	}
 }*/
 
+void screen(){
+	while (true)
+	{
+		lemlib::Pose pose = chassis.getPose(); // get the current position of the robot
+        pros::lcd::print(0, "x: %f", pose.x); // print the x position
+        pros::lcd::print(1, "y: %f", pose.y); // print the y position
+        pros::lcd::print(2, "heading: %f", pose.theta); // print the heading
+        pros::delay(10);
+	}
+	
+}
+
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -27,19 +39,14 @@
  */
 void initialize() {
 	pros::lcd::initialize();
-	drive.calibrate();
+	chassis.calibrate();
+	pros::Task screenTask(screen);
+	chassis.setPose(0, 0, 0);
+	//pros::lcd::print(1, "Select left or right button");
 
-    // print odom values to the brain
-    /*pros::Task screenTask([=]() {
-        while (true) {
-            pros::lcd::print(0, "X: %f", drive.getPose().x);
-            pros::lcd::print(1, "Y: %f", drive.getPose().y);
-            pros::lcd::print(2, "Theta: %f", drive.getPose().theta);
-            pros::delay(50);
-        }
-	});*/
+	pros::delay(10);
 	
-}
+}  
 
 /**
  * Runs while the robot is in the disabled state of Field Management System or
@@ -57,7 +64,11 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+    //pros::lcd::register_btn0_cb(on_left_button1);
+    //pros::lcd::register_btn1_cb(on_center_button1);
+    //pros::lcd::register_btn2_cb(on_right_button1);	
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -70,7 +81,18 @@ void competition_initialize() {}
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
-void autonomous() {}
+void autonomous() {
+    /*if (autonVal == 0) {
+        leftSideAuton();
+    }
+    if (autonVal == 1) {
+        rightSideAuton();
+    } else {
+        pros::lcd::clear();
+        pros::lcd::print(1, "You done messed up A-A Ron.");
+    }	*/
+	chassis.moveTo(10,10,0,1000);
+}
 
 /**
  * Runs the operator control code. This function will be started in its own task
@@ -90,7 +112,8 @@ void opcontrol() {
 
 	while (true) {
 
-		drive.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		
 		
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
 			cata.move_velocity(100);
@@ -100,6 +123,6 @@ void opcontrol() {
 		}
 
 
-		pros::delay(20);
+		pros::delay(10);
 	}
 }

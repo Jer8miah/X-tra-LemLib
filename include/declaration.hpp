@@ -18,7 +18,7 @@ extern pros::Motor topBackRight;
 extern pros::MotorGroup leftSide;
 extern pros::MotorGroup rightSide;
 
-extern lemlib::Chassis drive;
+extern lemlib::Chassis chassis;
 
 // Inertial
 extern pros::Imu imu;

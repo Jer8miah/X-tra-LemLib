@@ -16,18 +16,20 @@ pros::MotorGroup rightSide({backRight,topBackRight,frontRight});
 // Inertial
 pros::Imu imu(16);
 
+
+
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
 //
-pros::Motor cata(16, pros::E_MOTOR_GEARSET_36, false);
+pros::Motor cata(18, pros::E_MOTOR_GEARSET_36, false);
 
 lemlib::Drivetrain_t drivetrain {
     &leftSide,  // left drivetrain motors
     &rightSide, // left drivetrain motors
-    10,         // Update track width !!!
+    15,         // Update track width !!!
     4.125,      // wheel diameter
     300,        // wheel rpm 
-    2
+    5
 };
 
 lemlib::OdomSensors_t odomSensors {
@@ -40,8 +42,8 @@ lemlib::OdomSensors_t odomSensors {
 
 // forward/backward PID
 lemlib::ChassisController_t lateralController {
-    8, // kP
-    30, // kD
+    9, // kP
+    31, // kD
     1, // smallErrorRange
     100, // smallErrorTimeout
     3, // largeErrorRange
@@ -60,4 +62,4 @@ lemlib::ChassisController_t angularController {
     40 // slew rate
 };
 
-lemlib::Chassis drive(drivetrain, lateralController, angularController, odomSensors);
+lemlib::Chassis chassis(drivetrain, lateralController, angularController, odomSensors);
