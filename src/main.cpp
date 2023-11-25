@@ -1,5 +1,4 @@
 #include "main.h"
-#include "selection.cpp"
 
 
 
@@ -38,14 +37,20 @@ void screen(){
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
-	pros::lcd::initialize();
-	chassis.calibrate();
-	pros::Task screenTask(screen);
+
+	//pros::Task screenTask(screen);
 	chassis.setPose(0, 0, 0);
 	//pros::lcd::print(1, "Select left or right button");
 
 	pros::delay(10);
-	
+
+	as::auton_selector.add_autons({
+		Auton("Drive test", move_test),
+		Auton("Test 2", test_2)});
+
+	// Init chassis and auton selector
+	as::initialize();
+	chassis.calibrate();
 }  
 
 /**
