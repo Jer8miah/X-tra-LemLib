@@ -75,10 +75,13 @@ void opcontrol(void);
 
 // Device Init
 #include "declaration.hpp"
-#include "autonGlobals/auton.hpp"
-#include "autonGlobals/auton_selector.hpp"
-#include "autonGlobals/util.hpp"
-#include "autons.hpp"
+#include "globalFunc.hpp"
+
+// Autonomous Selector
+#include "autonGlobals/autonSelector.h"
+#include "autonGlobals/autonSelector.hpp"
+//#include "autonGlobals/util.hpp"
+
 
 // 3rd party libraries
 #include "lemlib/api.hpp"
