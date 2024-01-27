@@ -23,4 +23,11 @@ extern lemlib::Chassis chassis;
 // Inertial
 extern pros::Imu imu;
 
+// Cata
 extern pros::Motor cata;
+
+// Optical
+extern pros::Optical eyes;
+
+// Intake
+extern pros::Motor Intake;

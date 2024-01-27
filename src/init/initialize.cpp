@@ -7,7 +7,9 @@
  */
  
 void initialize(){
-    selectorInit();
+    //selectorInit();
+    pros::lcd::initialize();
+    
 
     pros::Task chassisCalibrateTask{[=] {
          chassis.calibrate();

@@ -18,7 +18,7 @@ void autonomous() {
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - 2 rollers, 
-			test();
+			//test();
 			break;
 		case RED_2: // Outside auton starting line
 
@@ -50,7 +50,7 @@ void autonomous() {
 			break;
 
 		case TEST:
-			test();
+			//test();
 
 			//chassis.setPose(
 			break;

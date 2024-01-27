@@ -1,4 +1,7 @@
 #include "main.h"
+#include "declaration.hpp"
+#include "pros/llemu.hpp"
+#include "pros/misc.h"
 /**
  * Runs while the robot is in the disabled state of Field Management System or
  * the VEX Competition Switch, following either autonomous or opcontrol. When
@@ -31,14 +34,25 @@ void opcontrol() {
 	while (true) {
 
 		chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		//pros::lcd::print(0,"Hue value: %lf", eyes.get_hue());
 		
 		
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R1)){
-			cata.move_velocity(100);
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
+			cata.move_velocity(-100);
 		}
 		else {
 			cata.brake();
 		}
+		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+			Intake.move_velocity(100);
+		} else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+			Intake.move_velocity(-100);
+		}
+		else {
+			Intake.brake();
+		}
+
+		//if (eyes.get_hue() == )
 
 
 		pros::delay(10);
