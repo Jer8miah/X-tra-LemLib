@@ -1,6 +1,9 @@
 #include "declaration.hpp"
+#include "lemlib/chassis/chassis.hpp"
+#include "lemlib/chassis/trackingWheel.hpp"
 #include "pros/adi.hpp"
 #include "pros/motors.h"
+#include "lemlib/api.hpp"
 
 
 //drivetrain motors
@@ -42,44 +45,47 @@ pros::Controller master(pros::E_CONTROLLER_MASTER);
 // Catapult
 pros::Motor cata(18, pros::E_MOTOR_GEARSET_36, false);
 
-lemlib::Drivetrain_t drivetrain {
+lemlib::Drivetrain drivetrain (
     &leftSide,  // left drivetrain motors
     &rightSide, // left drivetrain motors
     15,         // Update track width !!!
-    2.75,      // wheel diameter
+    lemlib::Omniwheel::NEW_275,      // wheel diameter
     450,        // wheel rpm 
-    5           // Chase power
-};
+    8           // Chase power
+);
 
-lemlib::OdomSensors_t odomSensors {
-    nullptr, // left encoder
-    nullptr, // right encoder
-    nullptr, // back encoder
-    nullptr, // front encoder
-    //&imu // imu
-    nullptr
-};
+lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
+                            nullptr, // vertical tracking wheel 2, set to nullptr as we are using IMEs
+                            nullptr, // horizontal tracking wheel 1
+                            nullptr, // horizontal tracking wheel 2, set to nullptr as we don't have a second one
+                            &imu // inertial sensor
+);
 
 // forward/backward PID
-lemlib::ChassisController_t lateralController {
-    9, // kP
-    31, // kD
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    5 // slew rate
-};
- 
-// turning PID
-lemlib::ChassisController_t angularController {
-    4, // kP
-    40, // kD
-    1, // smallErrorRange
-    100, // smallErrorTimeout
-    3, // largeErrorRange
-    500, // largeErrorTimeout
-    40 // slew rate
-};
+// forward/backward PID
+//#include "lemlib/controller_settings.hpp"
 
-lemlib::Chassis chassis(drivetrain, lateralController, angularController, odomSensors );
+lemlib::ControllerSettings linearController(10, // proportional gain (kP)
+                                            0, // integral gain (kI)
+                                            3, // derivative gain (kD)
+                                            3, // anti windup
+                                            1, // small error range, in inches
+                                            100, // small error range timeout, in milliseconds
+                                            3, // large error range, in inches
+                                            500, // large error range timeout, in milliseconds
+                                            20 // maximum acceleration (slew)
+);
+
+// angular motion controller
+lemlib::ControllerSettings angularController(2, // proportional gain (kP)
+                                             0, // integral gain (kI)
+                                             10, // derivative gain (kD)
+                                             3, // anti windup
+                                             1, // small error range, in degrees
+                                             100, // small error range timeout, in milliseconds
+                                             3, // large error range, in degrees
+                                             500, // large error range timeout, in milliseconds
+                                             0 // maximum acceleration (slew)
+);
+
+lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors );
