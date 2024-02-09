@@ -40,7 +40,7 @@ void autonomous() {
 			break;
 		case RED_2: // Outside auton starting line
 			//Drop down mid wing
-			chassis.moveTo();
+			//chassis.moveTo();
 			break;
 		case RED_3:
 
