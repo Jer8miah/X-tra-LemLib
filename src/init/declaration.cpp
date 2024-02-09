@@ -19,7 +19,7 @@ pros::MotorGroup leftSide({backLeft,topBackLeft,frontLeft});
 pros::MotorGroup rightSide({backRight,topBackRight,frontRight});
 
 // Inertial
-//pros::Imu imu(16);
+pros::Imu imu(16);
 
 // Opitcal 
 //pros::Optical eyes(15);
@@ -48,10 +48,10 @@ pros::Motor cata(18, pros::E_MOTOR_GEARSET_36, false);
 lemlib::Drivetrain drivetrain (
     &leftSide,  // left drivetrain motors
     &rightSide, // left drivetrain motors
-    15,         // Update track width !!!
+    12,         // Update track width !!!
     lemlib::Omniwheel::NEW_275,      // wheel diameter
     450,        // wheel rpm 
-    8           // Chase power
+    5           // Chase power
 );
 
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null

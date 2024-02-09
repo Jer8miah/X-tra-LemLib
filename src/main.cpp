@@ -52,9 +52,9 @@ void opcontrol() {
 
 		// Intake movement
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-			intake.move_velocity(100);
+			intake.move_voltage(600);
 		} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			intake.move_velocity(-100);
+			intake.move_voltage(-600);
 		}
 		else {
 			intake.brake();
