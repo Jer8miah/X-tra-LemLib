@@ -1,4 +1,6 @@
+#include "declaration.hpp"
 #include "main.h"
+#include "pros/adi.hpp"
 #include "pros/motors.h"
 #include "pros/optical.hpp"
 
@@ -21,8 +23,10 @@ pros::MotorGroup rightSide({backRight,topBackRight,frontRight});
 // Opitcal 
 //pros::Optical eyes(15);
 
+pros::ADIDigitalOut lift('F');
+
 // Intake
-pros::Motor Intake(14, pros::E_MOTOR_GEARSET_36, true);
+pros::Motor Intake(14, pros::E_MOTOR_GEARSET_06, true);
 
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
@@ -43,7 +47,8 @@ lemlib::OdomSensors_t odomSensors {
     nullptr, // right encoder
     nullptr, // back encoder
     nullptr, // front encoder
-    nullptr // imu
+    //&imu // imu
+    nullptr
 };
 
 // forward/backward PID

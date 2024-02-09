@@ -1,5 +1,6 @@
 #include "main.h"
 #include "declaration.hpp"
+#include "pros/adi.h"
 #include "pros/llemu.hpp"
 #include "pros/misc.h"
 /**
@@ -29,28 +30,41 @@ void disabled() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-
+	bool status_lift = false;
 
 	while (true) {
-
-		chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+			chassis.tank(pros::E_CONTROLLER_ANALOG_LEFT_Y, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+		}else {
+			chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		}
 		//pros::lcd::print(0,"Hue value: %lf", eyes.get_hue());
+		lift.set_value(false);
 		
 		
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-			cata.move_velocity(-100);
+			cata.move_velocity(60);
 		}
 		else {
 			cata.brake();
 		}
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
 			Intake.move_velocity(100);
-		} else if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_R2)) {
+		} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
 			Intake.move_velocity(-100);
 		}
 		else {
 			Intake.brake();
 		}
+
+		if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
+			status_lift = !status_lift;
+		}
+		lift.set_value(status_lift);
+		//} else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+		//	lift.set_value(LOW);
+
+		
 
 		//if (eyes.get_hue() == )
 

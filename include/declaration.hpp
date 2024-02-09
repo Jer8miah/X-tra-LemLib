@@ -3,6 +3,7 @@
 #include "main.h"
 #include "pros/adi.h"
 #include "lemlib/api.hpp"
+#include "pros/adi.hpp"
 
 // Controller
 extern pros::Controller master;
@@ -31,3 +32,6 @@ extern pros::Optical eyes;
 
 // Intake
 extern pros::Motor Intake;
+
+//Lift
+extern pros::ADIDigitalOut lift;
