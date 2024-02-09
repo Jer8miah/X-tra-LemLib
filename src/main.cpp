@@ -31,6 +31,7 @@ void opcontrol() {
 	bool status_lift = false;
 	bool status_wings = false;
 	bool status_weak_wings = false;
+	bool mid_wings = false;
 
 	while (true) {
 		
@@ -76,6 +77,12 @@ void opcontrol() {
 			status_weak_wings = !status_weak_wings;
 		}
 		weakWings.set_value(status_weak_wings);
+
+		//Mid wings movement
+		if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_X)){
+			mid_wings = !mid_wings;
+		}
+		midWing.set_value(mid_wings);
 
 		//
 		//} else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
