@@ -1,3 +1,4 @@
+#include "declaration.hpp"
 #include "main.h"
 
 /**
@@ -17,11 +18,29 @@ void autonomous() {
 
     switch (autonSelection) {
 		// Solo autons
-		case RED_1: // Main auton - 2 rollers, 
+		case RED_1: // Main auton - Auton Near Side , 
 			//test();
+			chassis.setPose(-35,-63,180);
+			chassis .moveTo(-60,-25, 225, 1000);
+			chassis.waitUntilDist(2);
+			chassis.moveTo(-60, -20, 225, 1000, true);
+			intake.move_absolute(360, -100);
+
+			chassis.turnTo(-30, -20, 1000);
+			chassis.moveTo(-60, 44, 75, 1000);
+
+			midWing.set_value(true);
+			chassis.moveTo(-44, -65, 180,1000);
+			pros::delay(500);
+			midWing.set_value(false);
+
+			chassis.moveTo(-2, -55, 180, 1000);
+			wings.set_value(true);
+
 			break;
 		case RED_2: // Outside auton starting line
-
+			//Drop down mid wing
+			chassis.moveTo();
 			break;
 		case RED_3:
 

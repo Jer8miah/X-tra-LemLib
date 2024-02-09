@@ -33,6 +33,9 @@ pros::ADIDigitalOut lift('F');
 // Intake
 pros::Motor intake(14, pros::E_MOTOR_GEARSET_06, true);
 
+//Mid Wing
+pros::ADIDigitalOut midWing('C');
+
 // Controller
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 

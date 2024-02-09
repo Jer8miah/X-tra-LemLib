@@ -42,3 +42,5 @@ extern pros::ADIDigitalOut wings;
 //Weak Wings
 extern pros::ADIDigitalOut weakWings;
 
+//Mid Wing
+extern pros::ADIDigitalOut midWing;

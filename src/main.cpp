@@ -34,17 +34,16 @@ void opcontrol() {
 
 	while (true) {
 		
+		//Chassis movement
 		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
 			chassis.tank(pros::E_CONTROLLER_ANALOG_LEFT_Y, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-		}else {
+		} else {
 			chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
 		}
-		//pros::lcd::print(0,"Hue value: %lf", eyes.get_hue());
-		//lift.set_value(false);
 		
 		//Cata movement
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-			cata.move_velocity(-60);
+			cata.move_velocity(-65);
 		}
 		else {
 			cata.brake();
@@ -82,6 +81,8 @@ void opcontrol() {
 		//} else if(master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
 		//	lift.set_value(LOW);
 
+		//pros::lcd::print(0,"Hue value: %lf", eyes.get_hue());
+		//lift.set_value(false);
 		
 
 		//if (eyes.get_hue() == )
