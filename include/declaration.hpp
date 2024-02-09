@@ -31,7 +31,14 @@ extern pros::Motor cata;
 extern pros::Optical eyes;
 
 // Intake
-extern pros::Motor Intake;
+extern pros::Motor intake;
 
 //Lift
 extern pros::ADIDigitalOut lift;
+
+//Full Wings
+extern pros::ADIDigitalOut wings;
+
+//Weak Wings
+extern pros::ADIDigitalOut weakWings;
+

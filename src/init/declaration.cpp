@@ -1,8 +1,6 @@
 #include "declaration.hpp"
-#include "main.h"
 #include "pros/adi.hpp"
 #include "pros/motors.h"
-#include "pros/optical.hpp"
 
 
 //drivetrain motors
@@ -23,14 +21,22 @@ pros::MotorGroup rightSide({backRight,topBackRight,frontRight});
 // Opitcal 
 //pros::Optical eyes(15);
 
+// Full Wings
+pros::ADIDigitalOut wings('A');
+
+// Weak Wings
+pros::ADIDigitalOut weakWings('B');
+
+// Lift
 pros::ADIDigitalOut lift('F');
 
 // Intake
-pros::Motor Intake(14, pros::E_MOTOR_GEARSET_06, true);
+pros::Motor intake(14, pros::E_MOTOR_GEARSET_06, true);
 
+// Controller
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 
-//
+// Catapult
 pros::Motor cata(18, pros::E_MOTOR_GEARSET_36, false);
 
 lemlib::Drivetrain_t drivetrain {
