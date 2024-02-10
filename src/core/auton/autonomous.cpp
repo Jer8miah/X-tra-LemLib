@@ -18,14 +18,15 @@ void autonomous() {
     debugInit();
 	//chassis.moveToPose(0, 20, 0, 5000);
 	//chassis.setPose(0, 0, 0);
-	chassis.moveToPose(0, 35, 0,5000);
+	//chassis.moveToPose(0, 35, 0,5000);
 	
-	chassis.moveToPose(0, 0, 0, 5000);
-
+	//chassis.moveToPose(0, 0, 0, 5000);
+	//chassis.moveToPoint(0, 10, 5000);
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - Auton Near Side , 
 			//test();
+			/*
 			chassis.setPose(-35,-63,180);
 			chassis .moveToPoint(-60,-25, 225, 2000);
 			//chassis.waitUntilDist(2);
@@ -42,6 +43,10 @@ void autonomous() {
 
 			chassis.moveToPoint(-2, -55, 180, 1000);
 			wings.set_value(true);
+			*/
+			chassis.moveToPoint(0, 20, 1000);
+			chassis.moveToPoint(0,10,1000, false);
+
 
 			break;
 		case RED_2: // Outside auton starting line
@@ -77,7 +82,7 @@ void autonomous() {
 			break;
 			
 		case SKILLS:
-			break;
+			cata.move_velocity(100);
 
 		case TEST:
 			//test();

@@ -36,11 +36,9 @@ void opcontrol() {
 	while (true) {
 		
 		//Chassis movement
-		//if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-		chassis.tank(pros::E_CONTROLLER_ANALOG_LEFT_Y, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-		//} else {
-			//chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
-		//}
+		
+		chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		
 		
 		//Cata movement
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
