@@ -1,6 +1,7 @@
 #include "autonGlobals/autonSelector.hpp"
 #include "declaration.hpp"
 #include "main.h"
+#include "pros/rtos.hpp"
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -45,6 +46,7 @@ void autonomous() {
 			wings.set_value(true);
 			*/
 			chassis.moveToPoint(0, 20, 1000);
+			pros::delay(500);
 			chassis.moveToPoint(0,10,1000, false);
 
 
