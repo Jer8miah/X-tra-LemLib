@@ -36,15 +36,15 @@ void opcontrol() {
 	while (true) {
 		
 		//Chassis movement
-		if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
-			chassis.tank(pros::E_CONTROLLER_ANALOG_LEFT_Y, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
-		} else {
-			chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
-		}
+		//if (master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_A)) {
+		chassis.tank(pros::E_CONTROLLER_ANALOG_LEFT_Y, pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+		//} else {
+			//chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
+		//}
 		
 		//Cata movement
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
-			cata.move_velocity(-65);
+			cata.move_velocity(100);
 		}
 		else {
 			cata.brake();
@@ -52,9 +52,9 @@ void opcontrol() {
 
 		// Intake movement
 		if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
-			intake.move_voltage(600);
+			intake.move_velocity(600);
 		} else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
-			intake.move_voltage(-600);
+			intake.move_velocity(-600);
 		}
 		else {
 			intake.brake();

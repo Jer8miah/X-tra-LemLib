@@ -16,38 +16,47 @@
 void autonomous() {
 	// Init debug screen for auton
     debugInit();
+	//chassis.moveToPose(0, 20, 0, 5000);
+	//chassis.setPose(0, 0, 0);
+	chassis.moveToPose(0, 35, 0,5000);
+	
+	chassis.moveToPose(0, 0, 0, 5000);
 
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - Auton Near Side , 
 			//test();
 			chassis.setPose(-35,-63,180);
-			chassis .moveToPoint(-60,-25, 225, 100);
+			chassis .moveToPoint(-60,-25, 225, 2000);
 			//chassis.waitUntilDist(2);
-			chassis.moveToPose(-60, -20, 225, 1000);
+			chassis.moveToPoint(-60, -20, 225, 1000);
 			intake.move_absolute(360, -100);
 
 			chassis.turnTo(-30, -20, 1000);
-			chassis.moveToPose(-60, 44, 75, 1000);
+			chassis.moveToPoint(-60, 44, 75, 1000);
 
 			midWing.set_value(true);
-			chassis.moveToPose(-44, -65, 180,1000);
+			chassis.moveToPoint(-44, -65, 180,1000);
 			pros::delay(500);
 			midWing.set_value(false);
 
-			chassis.moveToPose(-2, -55, 180, 1000);
+			chassis.moveToPoint(-2, -55, 180, 1000);
 			wings.set_value(true);
 
 			break;
 		case RED_2: // Outside auton starting line
 			//Drop down mid wing
-
+			//chassis.moveToPose(, float y, float theta, int timeout)
 			//chassis.moveTo();
 			break;
 		case RED_3:
+			chassis.setPose(0, 0, 0);
+			chassis.moveToPose(0, 7, 0, 10000);
 
 			break;
 		case RED_4:
+			chassis.setPose(0, 0, 0);
+			chassis.moveToPose(0, 7, 0, 10000);
 
 			break;
 

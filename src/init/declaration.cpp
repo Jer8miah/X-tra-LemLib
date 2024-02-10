@@ -25,7 +25,7 @@ pros::Imu imu(16);
 //pros::Optical eyes(15);
 
 // Full Wings
-pros::ADIDigitalOut wings('A');
+pros::ADIDigitalOut wings('D');
 
 // Weak Wings
 pros::ADIDigitalOut weakWings('B');
@@ -48,7 +48,7 @@ pros::Motor cata(18, pros::E_MOTOR_GEARSET_36, false);
 lemlib::Drivetrain drivetrain (
     &leftSide,  // left drivetrain motors
     &rightSide, // left drivetrain motors
-    12,         // Update track width !!!
+    14,         // Update track width !!!
     lemlib::Omniwheel::NEW_275,      // wheel diameter
     450,        // wheel rpm 
     5           // Chase power
@@ -65,21 +65,21 @@ lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
 // forward/backward PID
 //#include "lemlib/controller_settings.hpp"
 
-lemlib::ControllerSettings linearController(10, // proportional gain (kP)
+lemlib::ControllerSettings linearController(34, // proportional gain (kP)
                                             0, // integral gain (kI)
-                                            3, // derivative gain (kD)
+                                            19, // derivative gain (kD)
                                             3, // anti windup
                                             1, // small error range, in inches
                                             100, // small error range timeout, in milliseconds
                                             3, // large error range, in inches
                                             500, // large error range timeout, in milliseconds
-                                            20 // maximum acceleration (slew)
+                                            16 // maximum acceleration (slew)
 );
 
 // angular motion controller
-lemlib::ControllerSettings angularController(2, // proportional gain (kP)
+lemlib::ControllerSettings angularController(13, // proportional gain (kP)
                                              0, // integral gain (kI)
-                                             10, // derivative gain (kD)
+                                             43, // derivative gain (kD)
                                              3, // anti windup
                                              1, // small error range, in degrees
                                              100, // small error range timeout, in milliseconds

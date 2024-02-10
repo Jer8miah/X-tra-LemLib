@@ -27,4 +27,5 @@ void initialize(){
  */
 void competition_initialize() {
     selectorInit();
+    //debugInit();
 }
