@@ -12,8 +12,6 @@ void disabled() {}
 
 
 
-
-
 /**
  * Runs the operator control code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -153,7 +151,8 @@ void opcontrol() {
 		//chassis.arcade(master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X));
 		Robot::chassis->tank(
       Robot::master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y), 
-      Robot::master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y));
+      Robot::master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y),
+      15);
     
 		/*
 		//Cata movement
