@@ -11,10 +11,10 @@ extern pros::Controller master;
 // Drivetrain
 extern pros::Motor frontLeft;
 extern pros::Motor backLeft;
-extern pros::Motor topBackLeft;
+extern pros::Motor midLeft;
 extern pros::Motor frontRight;
 extern pros::Motor backRight;
-extern pros::Motor topBackRight;
+extern pros::Motor midRight;
 
 extern pros::MotorGroup leftSide;
 extern pros::MotorGroup rightSide;
@@ -40,7 +40,11 @@ extern pros::ADIDigitalOut lift;
 extern pros::ADIDigitalOut wings;
 
 //Weak Wings
-extern pros::ADIDigitalOut weakWings;
+extern pros::ADIDigitalOut backWings;
 
 //Mid Wing
 extern pros::ADIDigitalOut midWing;
+
+//Tracking Wheel
+extern pros::Rotation vertTracker;
+extern lemlib::TrackingWheel vert_tracking_wheel;

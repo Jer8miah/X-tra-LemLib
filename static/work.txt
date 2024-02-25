@@ -1,0 +1,40 @@
+-15.268, -62.198, 27
+-17.232, -61.821, 27
+-19.192, -61.423, 27
+-21.148, -61.003, 27
+-23.094, -60.543, 27
+-25.034, -60.056, 27
+-26.966, -59.54, 27
+-28.89, -58.993, 27
+-30.8, -58.402, 27
+-32.7, -57.776, 27
+-34.586, -57.113, 27
+-36.458, -56.409, 27
+-38.313, -55.662, 27
+-40.149, -54.868, 27
+-41.961, -54.023, 27
+-43.748, -53.124, 27
+-45.504, -52.168, 27
+-47.226, -51.15, 27
+-48.906, -50.066, 27
+-50.539, -48.912, 27
+-52.118, -47.684, 27
+-53.617, -46.361, 27
+-55.036, -44.952, 27
+-56.339, -43.436, 27
+-57.507, -41.814, 27
+-58.49, -40.074, 27
+-59.222, -38.215, 27
+-59.62, -36.259, 27
+-59.595, -34.265, 27
+-59.029, -32.354, 27
+-57.951, -30.68, 14.42
+-57.414, -30.11, 0
+-57.414, -30.11, 0
+-43.697, -15.555, 0
+endData
+132.8
+27
+200
+-15.268, -62.198, -54.78, -55.014, -64.837, -37.055, -57.414, -30.11
+#PATH.JERRYIO-DATA {"appVersion":"0.5.1","format":"LemLib v0.4.x (inch, byte-voltage)","gc":{"robotWidth":12,"robotHeight":12,"robotIsHolonomic":false,"showRobot":true,"uol":2.54,"pointDensity":2,"controlMagnetDistance":1.968503937007874,"fieldImage":{"displayName":"VRC 2024 - Over Under","signature":"VRC 2024 - Over Under","origin":{"__type":"built-in"}}},"paths":[{"segments":[{"controls":[{"uid":"Ii4qEPVohB","x":-15.268199233716473,"y":-62.19827586206897,"lock":false,"visible":true,"heading":0,"__type":"end-point"},{"uid":"E0g7ZDa6ID","x":-54.779693486590034,"y":-55.014367816091955,"lock":false,"visible":true,"__type":"control"},{"uid":"szp2PTTyWR","x":-64.83716475095785,"y":-37.054597701149426,"lock":false,"visible":true,"__type":"control"},{"uid":"hJtj0tReXS","x":-57.41379310344827,"y":-30.110153256704983,"lock":false,"visible":true,"heading":0,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"XAZG95TBBR"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":10,"to":27},"bentRateApplicableRange":{"minLimit":{"value":0,"label":""},"maxLimit":{"value":4,"label":"4"},"step":0,"from":0,"to":0},"maxDecelerationRate":132.8},"name":"Path","uid":"i2cYA9BO4K","lock":false,"visible":true}]}

@@ -1,8 +1,9 @@
 #include "autonGlobals/autonSelector.hpp"
 #include "declaration.hpp"
+#include "lemlib/asset.hpp"
 #include "main.h"
 #include "pros/rtos.hpp"
-
+ASSET(j_txt);
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -19,10 +20,20 @@ void autonomous() {
     debugInit();
 	//chassis.moveToPose(0, 20, 0, 5000);
 	//chassis.setPose(0, 0, 0);
-	//chassis.moveToPose(0, 35, 0,5000);
+	//chassis.moveToPose(15,15,90, 5000);
+	//chassis.moveToPose(0,0,0, 5000, {.forwards = false});
 	
-	//chassis.moveToPose(0, 0, 0, 5000);
-	//chassis.moveToPoint(0, 10, 5000);
+	//chassis.moveToPose(0, 0, 0, 5000, {.forwards = false});
+	chassis.moveToPoint(0, 10, 5000);
+	chassis.setPose(0, 0, 0);
+	chassis.moveToPose(0, 9, 0, 1000, {.forwards = true});
+	chassis.waitUntil(8);
+	backWings.set_value(true);
+	chassis.moveToPose(0, 3, 0, 1000, {.forwards = false});
+	chassis.waitUntil(4);
+	backWings.set_value(false);
+
+	//chassis.follow(j_txt,6, 2000);
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - Auton Near Side , 
