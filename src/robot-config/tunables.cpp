@@ -2,10 +2,10 @@
 #include "robot.h"
 
 lemlib::ControllerSettings Robot::Tuneables::lateralController {
-                        10, // proportional gain (kP)
+                        14, // proportional gain (kP)
                         0, // integral gain (kI)   
-                        3, // derivative gain (kD)
-               3, // anti windup
+                        42, // derivative gain (kD)
+               0, // anti windup
                 1, // small error range, in inches
          100, // small error range timeout, in milliseconds
                 3, // large error range, in inches
@@ -14,12 +14,12 @@ lemlib::ControllerSettings Robot::Tuneables::lateralController {
 };
 
 lemlib::ControllerSettings Robot::Tuneables::angularController{
-                                             2, // proportional gain (kP)
+                                             3.5, // proportional gain (kP)
                                              0, // integral gain (kI)
-                                             10, // derivative gain (kD)
-                                             3, // anti windup
+                                             20, // derivative gain (kD)
+                                             0, // anti windup
                                              1, // small error range, in degrees
-                                             100, // small error range timeout, in milliseconds
+                                             250, // small error range timeout, in milliseconds
                                              3, // large error range, in degrees
                                              500, // large error range timeout, in milliseconds
                                              0 // maximum acceleration (slew)

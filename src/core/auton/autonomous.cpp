@@ -2,6 +2,7 @@
 #include "lemlib/asset.hpp"
 #include "main.h"
 #include "pros/rtos.hpp"
+#include "robot.h"
 ASSET(j_txt);
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -17,9 +18,12 @@ ASSET(j_txt);
 void autonomous() {
 	// Init debug screen for auton
     //debugInit();
-	
+	//Robot::chassis->setPose({0, 0, 0});
+	//Robot::chassis->moveToPoint(0, 7, 2000);
+	//Robot::chassis->moveToPoint(0, 0, 2000, false);
+	Robot::chassis->turnTo(1000,0,1000);
 
-	//chassis.follow(j_txt,6, 2000);
+	//Robot::chassis->follow(j_txt,6, 2000);
     switch (autonSelection) {
 		// Solo autons
 		case RED_1: // Main auton - Auton Near Side , 
