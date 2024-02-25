@@ -12,6 +12,7 @@ class Robot {
                 static pros::Motor_Group rightSide;
 
                 static pros::Motor intake;
+                static pros::Motor lift;
         };
 
         class Sensors{

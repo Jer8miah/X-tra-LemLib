@@ -65,10 +65,14 @@ void opcontrol() {
 		}
 
 		//Lift movement
-		if(Robot::master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)){
-			status_lift = !status_lift;
+		if (Robot::master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
+			Robot::Motors::lift.move_velocity(100);
+		} else if (Robot::master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)) {
+			Robot::Motors::lift.move_velocity(-100);
 		}
-		Robot::Motors::lift.set_value(status_lift);
+		else {
+			Robot::Motors::lift.brake();
+		}
 
 		//Wings movement
 		if(Robot::master.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_LEFT) ){

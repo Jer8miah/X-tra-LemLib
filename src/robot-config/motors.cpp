@@ -14,20 +14,8 @@ pros::Motor midRight(6, pros::E_MOTOR_GEARSET_06, true);
 pros::MotorGroup leftSide({backLeft,midLeft,frontLeft});
 pros::MotorGroup rightSide({backRight,midRight,frontRight});
 
-// Inertial
-pros::Imu imu(16);
-
-// Opitcal 
-//pros::Optical eyes(15);
-
-// Full Wings
-pros::ADIDigitalOut wings('D');
-
-// Weak Wings
-pros::ADIDigitalOut backWings('B');
-
-// Lift
-pros::ADIDigitalOut lift('F');
+//Lift
+pros::Motor lift(3, pros::E_MOTOR_GEARSET_36, false);
 
 //intake
 pros::Motor intakeA(14, pros::E_MOTOR_GEAR_600, true);
