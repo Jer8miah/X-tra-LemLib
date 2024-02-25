@@ -60,6 +60,20 @@ class Robot {
                 static void update();
         };
 
+        class Actions {
+            public:
+                static void outtake();
+                static void intake();
+
+                static void expandBackWings();
+
+                static void retractBackWings();
+
+                static void expandWings();
+
+                static void retractWings();
+        };
+
         static void initializeOdometry();
         static lemlib::OdomSensors* odomSensors;
         static pros::Controller master;

@@ -19,8 +19,14 @@ void autonomous() {
 	// Init debug screen for auton
     //debugInit();
 	//Robot::chassis->setPose({0, 0, 0});
-	//Robot::chassis->moveToPoint(0, 7, 2000);
-	//Robot::chassis->moveToPoint(0, 0, 2000, false);
+	Robot::chassis->moveToPoint(0, 7, 5000);
+	Robot::chassis->waitUntilDone();
+	Robot::Actions::expandBackWings();
+
+	Robot::chassis->moveToPoint(0, 0, 2000, false);
+	Robot::Actions::retractBackWings();
+
+
 	Robot::chassis->turnTo(1000,0,1000);
 
 	//Robot::chassis->follow(j_txt,6, 2000);
