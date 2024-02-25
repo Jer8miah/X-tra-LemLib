@@ -1,4 +1,5 @@
 #include "main.h"
+#include "robot.h"
 /*
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -12,7 +13,7 @@ void initialize(){
     
 
     pros::Task chassisCalibrateTask{[=] {
-         chassis.calibrate();
+         Robot::chassis->calibrate();
     }};
 }
 

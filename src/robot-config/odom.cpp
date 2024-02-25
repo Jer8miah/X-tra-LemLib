@@ -1,10 +1,7 @@
 #include "lemlib/chassis/chassis.hpp"
 #include "lemlib/chassis/trackingWheel.hpp"
-#include "lemlib/util.hpp"
 #include "robot.h"
 #include "pros/error.h"
-#include <cmath>
-#include <sstream>
 
 void Robot::initializeOdometry(){
     lemlib::Drivetrain drivetrain {

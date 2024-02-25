@@ -74,7 +74,6 @@ void opcontrol(void);
 #ifdef __cplusplus
 
 // Device Init
-#include "declaration.hpp"
 #include "globalFunc.hpp"
 
 // Autonomous Selector
