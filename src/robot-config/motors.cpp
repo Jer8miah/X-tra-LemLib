@@ -15,7 +15,7 @@ pros::MotorGroup leftSide({backLeft,midLeft,frontLeft});
 pros::MotorGroup rightSide({backRight,midRight,frontRight});
 
 //Lift
-pros::Motor lift(3, pros::E_MOTOR_GEARSET_36, false);
+pros::Motor liftA(3, pros::E_MOTOR_GEARSET_36, false);
 
 //intake
 pros::Motor intakeA(14, pros::E_MOTOR_GEAR_600, true);
@@ -23,4 +23,5 @@ pros::Motor intakeA(14, pros::E_MOTOR_GEAR_600, true);
 // Robot Group
 pros::Motor_Group Robot::Motors::leftSide {frontLeft, midLeft, backLeft};
 pros::Motor_Group Robot::Motors::rightSide {frontRight, midRight, backRight};
-pros::Motor Robot::Motors::intake {intakeA};
+pros::Motor_Group Robot::Motors::intake {intakeA};
+pros::Motor_Group Robot::Motors::lift {liftA};

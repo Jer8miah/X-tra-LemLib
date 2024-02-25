@@ -3,6 +3,8 @@
 #include "pros/misc.hpp"
 #include "pros/motors.hpp"
 #include "pros/rotation.hpp"
+#include "controllerScreen.h"
+#include "driverFeedback.h"
 
 class Robot {
     public:
@@ -11,8 +13,8 @@ class Robot {
                 static pros::Motor_Group leftSide;
                 static pros::Motor_Group rightSide;
 
-                static pros::Motor intake;
-                static pros::Motor lift;
+                static pros::Motor_Group intake;
+                static pros::Motor_Group lift;
         };
 
         class Sensors{
@@ -45,6 +47,17 @@ class Robot {
                 static lemlib::ControllerSettings angularController;
                 static const float chasePower;
 
+        };
+
+        class Subsystems{
+            public:
+                static DriverFeedback* feedback;
+                static ControllerScreen* master;
+
+                static pros::Task* task;
+
+                static void initialize();
+                static void update();
         };
 
         static void initializeOdometry();

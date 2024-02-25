@@ -10,11 +10,13 @@
 void initialize(){
     //selectorInit();
     pros::lcd::initialize();
+    Robot::initializeOdometry();
     
-
+/*
     pros::Task chassisCalibrateTask{[=] {
          Robot::chassis->calibrate();
     }};
+    */
 }
 
 /**
@@ -28,5 +30,5 @@ void initialize(){
  */
 void competition_initialize() {
     //selectorInit();
-    debugInit();
+    //debugInit();
 }

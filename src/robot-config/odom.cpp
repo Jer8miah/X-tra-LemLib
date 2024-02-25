@@ -3,6 +3,9 @@
 #include "robot.h"
 #include "pros/error.h"
 
+lemlib::OdomSensors* Robot::odomSensors = nullptr;
+lemlib::Chassis* Robot::chassis = nullptr;
+
 void Robot::initializeOdometry(){
     lemlib::Drivetrain drivetrain {
         &Robot::Motors::leftSide,       &Robot::Motors::rightSide,
