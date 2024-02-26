@@ -16,7 +16,7 @@ pros::Motor midRight(6, pros::E_MOTOR_GEARSET_06, true);
 pros::Motor liftA(3, pros::E_MOTOR_GEARSET_36, false);
 
 //intake
-pros::Motor intakeA(14, pros::E_MOTOR_GEAR_600, true);
+pros::Motor intakeA(14, pros::E_MOTOR_GEAR_600, false);
 
 // Robot Group
 pros::Motor_Group Robot::Motors::rightSide {frontLeft, midLeft, backLeft};

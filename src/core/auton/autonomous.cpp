@@ -3,7 +3,7 @@
 #include "main.h"
 #include "pros/rtos.hpp"
 #include "robot.h"
-ASSET(j_txt);
+ASSET(baby_text);
 /**
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via
@@ -18,16 +18,41 @@ ASSET(j_txt);
 void autonomous() {
 	// Init debug screen for auton
     //debugInit();
-	//Robot::chassis->setPose({0, 0, 0});
-	Robot::chassis->moveToPoint(0, 7, 5000);
+	Robot::chassis->setPose({0, 0, 0});
+	
+	Robot::chassis->moveToPoint(0, 11, 1000);
 	Robot::chassis->waitUntilDone();
 	Robot::Actions::expandBackWings();
+	
+	pros::delay(500);
+	Robot::chassis->moveToPoint(0, -1, 1000, false);
+	Robot::chassis->waitUntilDone();
 
-	Robot::chassis->moveToPoint(0, 0, 2000, false);
+	pros::delay(1000);
+	Robot::Actions::retractBackWings();
+	Robot::chassis->moveToPoint(0, 18, 1000);
+	Robot::chassis->moveToPose(0, 18, 50,1000);
+	Robot::chassis->waitUntilDone();
+
+	Robot::Actions::outtake();
+	pros::delay(1000);
+	Robot::chassis->moveToPoint(0, 15, 1000);
+	Robot::chassis->waitUntilDone();
+	Robot::chassis->moveToPose(0, 15, 220,1000);
+	Robot::chassis->waitUntilDone();
+	Robot::Actions::expandBackWings();
+	Robot::chassis->moveToPoint(0, 36, 1000, false);
+	Robot::chassis->waitUntilDone();
 	Robot::Actions::retractBackWings();
 
+	Robot::chassis->moveToPoint(0, 3, 1000);
 
-	Robot::chassis->turnTo(1000,0,1000);
+	Robot::chassis->moveToPose(0,3,130,1000);
+	Robot::chassis->moveToPoint(27,-24,1000);
+
+
+
+	//Robot::chassis->turnTo(1000,0,1000);
 
 	//Robot::chassis->follow(j_txt,6, 2000);
     switch (autonSelection) {

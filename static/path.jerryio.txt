@@ -1,0 +1,41 @@
+-61.504, -28.959, 93.714
+-61.432, -30.958, 93.293
+-61.284, -32.952, 92.85
+-61.047, -34.937, 91.907
+-60.71, -36.909, 91.415
+-60.277, -38.861, 90.42
+-59.72, -40.781, 89.934
+-59.058, -42.668, 89.037
+-58.257, -44.5, 88.65
+-57.341, -46.278, 88.065
+-56.285, -47.975, 87.889
+-55.113, -49.595, 87.812
+-53.809, -51.111, 87.918
+-52.403, -52.532, 88.41
+-50.884, -53.832, 88.78
+-49.282, -55.029, 89.218
+-47.598, -56.106, 89.549
+-45.848, -57.073, 86.667
+-44.045, -57.939, 83.685
+-42.197, -58.702, 80.594
+-40.31, -59.365, 77.378
+-38.396, -59.941, 74.024
+-36.458, -60.437, 70.509
+-34.503, -60.857, 66.811
+-32.534, -61.207, 62.895
+-30.555, -61.492, 58.718
+-28.568, -61.718, 54.22
+-26.576, -61.888, 49.314
+-24.579, -62.008, 43.863
+-22.581, -62.082, 37.63
+-20.581, -62.113, 30.133
+-18.581, -62.103, 20
+-17.525, -62.083, 0
+-17.525, -62.083, 0
+2.472, -61.701, 0
+endData
+127
+100
+200
+-61.504, -28.959, -61.226, -48.444, -50.37, -62.918, -17.525, -62.083
+#PATH.JERRYIO-DATA {"appVersion":"0.6.0","format":"LemLib v0.4.x (inch, byte-voltage)","gc":{"robotWidth":12,"robotHeight":12,"robotIsHolonomic":false,"showRobot":false,"uol":2.54,"pointDensity":2,"controlMagnetDistance":0.7750015500031,"fieldImage":{"displayName":"VRC 2024 - Over Under","signature":"VRC 2024 - Over Under","origin":{"__type":"built-in"}}},"paths":[{"segments":[{"controls":[{"uid":"YJDhZlsdhu","x":-61.503859764310576,"y":-28.959,"lock":false,"visible":true,"heading":90,"__type":"end-point"},{"uid":"shWuZnAzJE","x":-61.22551137652857,"y":-48.4437534095792,"lock":false,"visible":true,"__type":"control"},{"uid":"sIo6APyyFi","x":-50.369924253030604,"y":-62.91786957424314,"lock":false,"visible":true,"__type":"control"},{"uid":"9MAuhB8biE","x":-17.524814494754676,"y":-62.083,"lock":false,"visible":true,"heading":0,"__type":"end-point"}],"speedProfiles":[],"lookaheadKeyframes":[],"uid":"Bh3d93ErIC"}],"pc":{"speedLimit":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":127,"label":"127"},"step":1,"from":20,"to":100},"bentRateApplicableRange":{"minLimit":{"value":0,"label":"0"},"maxLimit":{"value":1,"label":"1"},"step":0.001,"from":0,"to":0.1},"maxDecelerationRate":127},"name":"Path","uid":"oIeOAzzO14","lock":false,"visible":true}]}
